@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Template Page</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/include.js" defer></script>
+</head>
+
+
+<body>
+
+<!-- PAGE TOP: filled in from includes/header.html -->
+<div id="page-top"></div>
+
+<main class="page-main">
+
+<div class="hero">
+  <img class="hero-image" src="images/horizo.jpg" alt=""> 
+  <h1 class="hero-title">Contact Info</h1>
+</div>
+<div class="wrapper">
+  <h1 class="section-title">Phone</h1>
+  <p>(203) 349-1993</p>
+  <h1 class="section-title">Email</h1>
+  <p>gavingarrido2002@gmail.com</p>
+  <h1 class="section-title">Address</h1>
+  <p>1 Glover Ave, Norwalk, CT 06850</p>
+</div>
+<div class ="wrapper">
+<section class="text-block">
+
+
+  <h2 class="section-title">Contact Form will go here</h2>
+  </section>
+ </div> 
+
+<form action="https://formspree.io/f/mqpqalgl" method="POST" id="contact-form">
+<label for="first-name">First Name</label><input type="text" id="first-name" name="first-name" required>
+<label for="last-name">Last Name</label><input type="text" id="last-name" name="last-name" required>
+<label for="email">Email</label><input type="email" id="email" name="email" required>
+<label for="phone">Phone (optional)</label><input type="tel" id="phone" name="phone" class="phone">
+<label for="message">Message (optional)</label><textarea id="message" name="message" rows="6" cols="40"></textarea>
+<button type="submit">Send Message</button>
+</form>
+</main>
+
+<!-- PAGE BOTTOM: filled in from includes/footer.html -->
+<div id="page-bottom"></div>
+
+</body>
+</html>
+

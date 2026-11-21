@@ -1,0 +1,386 @@
+
+/* ============================================
+   Design direction
+   Body font:     Gill Sans MT, Gill Sans, sans serif
+   Heading font:  Trebuchet MS, sans-serif
+   Background:    #c5d6e0
+   Accent:        #1a5f9c
+   Mood: quiet, editorial, plenty of white space
+   ============================================ */
+/* DEBUG: see the boxes. Change 1px to 0 to hide them. */
+* {
+  outline: 0px solid red;
+}
+ /* --- Base and typography --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+} 
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 100%;
+  line-height: 1.4;
+  color: #222222;
+  background-color: #c5d6e0;
+  margin: 0;
+}
+
+body { font-size: 100%; }     /* respects the reader's own setting */
+h1   { font-size: 2rem; }
+h2   { font-size: 1.5rem; }
+h3   { font-size: 1.25rem; }
+h4   { font-size: 1rem; }
+
+a { color: #8d1d01; }
+a:hover { color: #ff9810; }
+
+/* --- Wrapper --- */
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+  max-width: 800px;
+}
+
+/* --- Header and nav --- */
+.site-header > p {
+  font-size: 1.50rem;
+  font-weight: 900;
+  color: #fdd90c;
+  letter-spacing: 20px;
+  text-align: center;
+  background-color: #861616;
+  filter: drop-shadow(0px 7px 9px #000);
+}
+
+.nav-link { 
+  font-size: 16px; 
+  color: #ad1616; 
+  text-decoration: none; 
+  border-radius: 6px;
+  display: inline-block;
+  padding: 8px 12px;
+}
+
+.nav-link:hover {
+  background-color: #b61c11;
+}
+
+/* HEADER LAYOUT: logo left, nav right */
+.site-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  background-color: #ff9810;
+  gap: 2em;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+   display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+.logo img {
+  height: 40px;
+}
+
+a.logo {
+  text-decoration: none;
+}
+
+/* --- Hero --- */
+
+.hero {
+  position: relative;
+}
+  
+
+
+.hero-image {
+  width: 100%;
+  height: 500px;
+  opacity: 0.8;
+  transition: opacity 0.9s ease-in-out;
+  object-fit: cover;
+  display: block;
+} 
+
+.hero-title {
+  position: absolute;
+  filter: drop-shadow(10px 5px 5px #000);
+  bottom: 20%;
+  left: 5%;
+}
+
+.hero-text {
+  position: absolute;
+  filter: drop-shadow(10px 5px 5px #000);
+  bottom: 9%;
+  left: 6%;
+} 
+
+.hero-title,
+.hero-text {
+  background-color: rgba(129, 5, 5, 0.5);
+  padding: 6px 16px;
+}
+
+.hero-title { color: #f3cf04;
+font-size: 3rem;}
+.hero-text { color: #f3cf04;
+font-size: 1.5rem;}
+
+
+/* --- Text blocks --- */
+
+.image-inline-left {
+  width: 30%;
+  float: left;
+  max-width: 100%;
+  margin-right: 1em;
+  border-radius: 6px;
+  border: 5px solid #ff9810;
+}
+
+.image-inline-right {
+  float: right;
+  width: 30%;
+  max-width: 100%;
+  margin-left: 1em;
+  border-radius: 6px;
+  border: 5px solid #ff9810;
+}
+
+p {display:flow-root;} 
+
+.section-title {
+  margin: 25px 0px 20px 0px;   /* top, left and right, bottom */
+}
+
+.text-block {
+  margin-bottom: 25px;
+  padding: 25px;
+}
+
+.site-footer {
+  margin-top: 40px;
+  padding: 32px 0;
+  background-color: #f17e20;
+}
+
+/* --- Flexbox --- */
+/* FLEX CONTAINER: image + text side by side */
+.flex-row {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 35px;
+  background-color: #f3cf04;
+  padding: 15px;
+  align-items: center;  
+}
+
+.flex-media {
+  width: 50%;
+}
+
+
+/* --- Lists --- */
+
+
+/* --- Links --- */
+
+
+/* --- Grid --- */
+/* GRID CONTAINER: image + text cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5em;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card {
+  padding: 50px;
+  background-color: #f3cf04;
+  border: 1px solid #ff9810;
+  border-radius: 6px;
+}
+
+.card-title {
+  margin: 0.75em 0 0.25em;
+  color: #861616;
+}
+
+/* HAMBURGER: hidden on wide screens */
+#nav-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background-color: #222222;
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* HAMBURGER: the X when the menu is open */
+#nav-toggle:checked + .hamburger span:nth-child(1) {
+  transform: translateY(9.5px) rotate(45deg);
+}
+
+#nav-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#nav-toggle:checked + .hamburger span:nth-child(3) {
+  transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* MOBILE: 768px and narrower */
+@media (max-width: 768px) {
+
+  /* Logo left, hamburger right, and let the nav drop to its own line */
+  .site-header {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  /* Show the hamburger */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hide the nav, and make it a full line when it opens */
+  .site-nav {
+    display: none;
+    flex-basis: 100%;
+  }
+
+  /* Show the nav when the checkbox is checked */
+  #nav-toggle:checked ~ .site-nav {
+    display: block;
+  }
+
+  /* Stack the links */
+  .nav-list {
+    flex-direction: column;
+  }
+
+  .flex-row {
+  flex-direction: column;
+}
+
+.flex-media {
+  width: 100%;
+}
+
+.nav-link {border: solid 1px #ad1616;
+background-color: #009ce4;
+font-size: 1.5rem;
+font-weight: 700;
+padding: 0.5em 2em;}
+
+.image-inline-left {
+  width: 60%;
+  float: none;
+  max-width: 100%;
+  border-radius: 6px;
+  border: 7px solid #ff9810;
+}
+
+.image-inline-right {
+  float: none;
+  width: 60%;
+  max-width: 100%;
+  margin-left: 0.3em;
+  border-radius: 6px;
+  border: 7px solid #ff9810;
+}
+
+.hero-title { color: #f3cf04;
+font-size: 5rem;}
+
+}
+
+/*Form styles*/ 
+form {
+  max-width: 500px;
+  margin: auto;
+  background-color: #ff9810;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  color: #861616;
+}
+
+input {
+  width: 90%;
+  border-radius: 4px;
+  height: 30px;
+  font-size: 20px; 
+}
+
+input:user-invalid {
+  border: dashed 2px red;
+}
+
+textarea:user-invalid {
+  border: dashed 2px red;
+}
+
+textarea{border-radius: 4px;
+  font-size: 20px; 
+  height: 100px;
+  border-radius: 8px;
+}
+
+input.phone {
+  width: 50%; 
+}
+
+textarea {
+  width: 90%;
+}
+
+button {
+  display: block;
+  margin-top: 20px;
+  border-radius: 10px;
+  height: 30px;
+  background-color: #861616;
+  color: #f3cf04;
+}
+
+button:hover {
+  background-color: #f3cf04;
+  color: #861616;
+}
